@@ -1,4 +1,5 @@
 #!usr/bin/env python3
+import os
 
 import requests
 import re
@@ -17,9 +18,11 @@ def get_arguments():
 options =  get_arguments()
 url = options.url
 print("\n\n")
-subprocess.call(["chmod", "777", url + ".html"])
-subprocess.call(["rm", url + ".html"])
-subprocess.call(["clear"])
+if os.path.isfile("./" + url + ".html"):
+    subprocess.call(["chmod", "777", url + ".html"])
+    subprocess.call(["rm", url + ".html"])
+    subprocess.call(["clear"])
+
 print("                        ______                       _         _____                  _                   ")
 print("                       / _____)                     | |       (____ \                | |                  ")
 print("                      | /  ___   ___    ___    ____ | |  ____  _   \ \   ___    ____ | |  _   ____   ____ ")
